@@ -1,4 +1,5 @@
 from fighter import Fighter
+from random import randint
 
 
 class Judas(Fighter):
@@ -24,7 +25,7 @@ class Judas(Fighter):
         self.__hp -= damage
 
     def compute_damage(self, enemy: Fighter) -> float:
-        damage: float = self.__attack - (enemy.get_defense() * 0.1)
+        damage: float = randint(1, self.__attack) - (enemy.get_defense() * 0.1)
         if damage < 0: 
             return 0
         else: 

@@ -1,10 +1,11 @@
 from fighter import Fighter
+from random import randint
 
 
 class Bethany(Fighter):
     def __init__(self) -> None:
-        self.__hp: float = 40
-        self.__defense: float = 15
+        self.__hp: float = 25
+        self.__defense: float = 6
         self.__attack: float = 3
         self.__speed: float = 3
 
@@ -24,7 +25,7 @@ class Bethany(Fighter):
         self.__hp -= damage
 
     def compute_damage(self, enemy: Fighter) -> float:
-        damage: float = self.__attack - (enemy.get_defense() * 0.1)
+        damage: float = randint(1, self.__attack) - (enemy.get_defense() * 0.1)
         if damage < 0: 
             return 0
         else: 

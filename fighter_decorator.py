@@ -1,5 +1,5 @@
 from fighter import Fighter
-
+from random import randint
 
 class FighterDecorator(Fighter):
     def __init__(self, fighter: Fighter) -> None:
@@ -24,7 +24,7 @@ class FighterDecorator(Fighter):
         return self.__decorated_fighter.reduce_hp(damage)
 
     def compute_damage(self, enemy: Fighter) -> float:
-        damage: float = self.__decorated_fighter.get_attack - (enemy.get_defense() * 0.1)
+        damage: float = randint(1, self.__decorated_fighter.get_attack()) - (enemy.get_defense() * 0.1)
         if damage < 0: 
             return 0
         else: 

@@ -10,5 +10,6 @@ class HolyMantleDecorator(FighterDecorator):
     def reduce_hp(self, damage: float) -> None:
         if self.__uses != 0:
             self.__uses -= 1
+            print('Holy mantle activado - Mitigado el daño recibido')
         else: 
-            self.__decorated_fighter.reduce_hp(damage)
+            self.get_fighter().reduce_hp(damage)

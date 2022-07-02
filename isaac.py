@@ -1,11 +1,12 @@
 from fighter import Fighter
+from random import randint
 
 
 class Isaac(Fighter):
     def __init__(self) -> None:
-        self.__hp: float = 50
-        self.__defense: float = 10
-        self.__attack: float = 2
+        self.__hp: float = 20
+        self.__defense: float = 8
+        self.__attack: float = 4
         self.__speed: float = 5
 
     def get_hp(self) -> float:
@@ -24,7 +25,8 @@ class Isaac(Fighter):
         self.__hp -= damage
 
     def compute_damage(self, enemy: Fighter) -> float:
-        damage: float = self.__attack - (enemy.get_defense() * 0.1)
+        damage: float = randint(1, self.__attack) - (enemy.get_defense() * 0.1)
+        print(damage)
         if damage < 0: 
             return 0
         else: 
